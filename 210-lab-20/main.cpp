@@ -13,22 +13,21 @@ public:
     // constructors
     Chair() {
         random_device randPrice;
-        uniform_real_distribution<double>price_Range(100.00, 999.99);
         random_device randLeg;
         uniform_int_distribution<int>leg_Range(3, 4);
+        uniform_real_distribution<double>price_Range(100.00, 999.99);
         
         prices = new double[SIZE];
-
         legs = leg_Range(randLeg);
     
         for (int i = 0; i < SIZE; i++)
             prices[i] = price_Range(randPrice);;
     }
-    Chair(int l) {
-        prices = new double[SIZE];
+    Chair(int l, double *array) {
+        prices = array;
         legs = l;
-        for (int i = 0; i < SIZE; i++)
-            prices[i] = 0;
+//        for (int i = 0; i < SIZE; i++)
+//            prices[i] = 0;
     }
 
     // setters and getters
@@ -57,8 +56,9 @@ public:
 };
 
 int main() {
+    double array[SIZE] = {111.11, 222.222, 333.44};
     cout << fixed << setprecision(2);
-
+    
     //creating pointer to first chair object
     Chair *chairPtr = new Chair;
     chairPtr->setLegs(4);
@@ -66,8 +66,7 @@ int main() {
     chairPtr->print();
 
     //creating dynamic chair object with constructor
-    Chair *livingChair = new Chair(3);
-    livingChair->setPrices(525.25, 434.34, 252.52);
+    Chair *livingChair = new Chair();
     livingChair->print();
     delete livingChair;
     livingChair = nullptr;
@@ -82,6 +81,10 @@ int main() {
     collection[2].setPrices(626.26, 515.15, 757.57);
     for (int i = 0; i < SIZE; i++)
         collection[i].print();
+    
+    
+    Chair *chairWithArray = new Chair(4, array);
+    chairWithArray->print();
     
     return 0;
 }
