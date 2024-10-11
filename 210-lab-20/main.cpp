@@ -1,3 +1,5 @@
+// COMSc 210 | Lab 20 | Neil Orton
+// IDE used: Xcode
 #include <iostream>
 #include <iomanip>
 #include <random>
