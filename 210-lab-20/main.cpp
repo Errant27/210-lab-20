@@ -45,10 +45,11 @@ public:
 
     void print() {
         cout << "CHAIR DATA - legs: " << legs << endl;
-        cout << "Price history: " ;
+        cout << "Price history: " << endl;
         for (int i = 0; i < SIZE; i++)
-            cout << prices[i] << " ";
-        cout << endl << "Historical avg price: " << getAveragePrices();
+            cout << "Price " << i + 1 << ": $" << prices[i] << ", ";
+        cout << endl << "Historical avg price: " << endl;
+        cout << "$" << getAveragePrices();
         cout << endl << endl;
     }
 };    //End of class
@@ -80,6 +81,9 @@ int main() {
     collection[2] = Chair();
     for (int i = 0; i < SIZE; i++)
         collection[i].print();
+    
+//    delete [] collection;
+//    collection = nullptr;
     
     return 0;
 }
