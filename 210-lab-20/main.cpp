@@ -82,8 +82,5 @@ int main() {
     for (int i = 0; i < SIZE; i++)
         collection[i].print();
     
-//    delete [] collection;
-//    collection = nullptr;
-    
     return 0;
 }
